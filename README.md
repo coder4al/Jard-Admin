@@ -1,4 +1,6 @@
-# React + Vite
+# Jard-FrontEnd
+# 000B6D-blue-sec 
+# FF0000-red-pri
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

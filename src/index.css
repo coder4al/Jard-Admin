@@ -12,3 +12,7 @@
     font-family: var(--font-family);
   }
 }
+
+::-webkit-scrollbar{
+  @apply hidden
+}
