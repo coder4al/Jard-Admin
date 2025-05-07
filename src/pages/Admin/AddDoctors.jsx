@@ -73,7 +73,7 @@ const AddDoctors = () => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className="m-5 w-full" name="" id="">
+    <form onSubmit={onSubmitHandler} className="m-5 w-full" name="" id="1">
       <p className="mb-3 text-lg font-medium">Add Doctors</p>
 
       <div className="bg-white px-8 py-8 border border-gray-200 rounded w-full max-w-4xl max-h-[80vh] overflow-y-scroll">
@@ -107,6 +107,7 @@ const AddDoctors = () => {
                 className="border border-gray-300 rounded px-3 py-2"
                 type="text"
                 placeholder="Name"
+                id="name"
                 required
               />
             </div>
@@ -119,6 +120,7 @@ const AddDoctors = () => {
                 className="border border-gray-300 rounded px-3 py-2"
                 type="email"
                 placeholder="Email"
+                id="email"
                 required
               />
             </div>
@@ -131,6 +133,7 @@ const AddDoctors = () => {
                 className="border border-gray-300 rounded px-3 py-2"
                 type="password"
                 placeholder="Password"
+                id="password"
                 required
               />
             </div>
@@ -142,7 +145,7 @@ const AddDoctors = () => {
                 value={experience}
                 className="border border-gray-300 rounded px-3 py-2"
                 name=""
-                id=""
+                id="experience"
               >
                 <option value="1 Year">1 Year</option>
                 <option value="2 Year">2 Year</option>
@@ -164,7 +167,7 @@ const AddDoctors = () => {
                 value={fees}
                 className="border border-gray-300 rounded px-3 py-2"
                 type="number"
-                id=""
+                id="fees"
                 placeholder="Fees"
                 required
               />
@@ -181,7 +184,7 @@ const AddDoctors = () => {
                 value={speciality}
                 className="border border-gray-300 rounded px-3 py-2"
                 name=""
-                id=""
+                id="speciality"
               >
                 <option value="General Physician">General Physician</option>
                 <option value="Gynecologist">Gynecologist</option>
@@ -199,7 +202,7 @@ const AddDoctors = () => {
                 value={degree}
                 className="border border-gray-300 rounded px-3 py-2"
                 type="text"
-                id=""
+                id="degree"
                 placeholder="Education"
                 required
               />
@@ -212,7 +215,7 @@ const AddDoctors = () => {
                 value={address1}
                 className="border border-gray-300 rounded px-3 py-2"
                 type="text"
-                id=""
+                id="address1"
                 placeholder="Address 1"
               />
               <input
@@ -220,7 +223,7 @@ const AddDoctors = () => {
                 value={address2}
                 className="border border-gray-300 rounded px-3 py-2"
                 type="text"
-                id=""
+                id="address2"
                 placeholder="Address 2"
               />
             </div>
@@ -233,6 +236,7 @@ const AddDoctors = () => {
             onChange={(e) => setAbout(e.target.value)}
             value={about}
             className="w-full px-4 pt-2 border border-gray-300 rounded"
+            id="about"
             placeholder="write about doctor"
             rows={5}
             required
