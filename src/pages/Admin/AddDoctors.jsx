@@ -53,12 +53,23 @@ const AddDoctors = () => {
       );
 
       if (data.success) {
-        toast.success(data.message)
+        toast.success(data.message);
+        setDocImg(false);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setFees("");
+        setAbout("");
+        setDegree("");
+        setAddress1("");
+        setAddress2("");
       } else {
-        toast.error(data.message)
+        toast.error(data.message);
       }
-
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
   };
 
   return (
