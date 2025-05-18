@@ -3,17 +3,26 @@ import { assets } from "../assets/assets";
 import { AdminContext } from "../context/AdminContext";
 import axios from 'axios'
 import { toast } from "react-toastify";
+import { DoctorContext } from "../context/DoctorContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [state, setState] = useState("Admin");
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setAToken, backendUrl } = useContext(AdminContext);
+  const {setDToken} = useContext(DoctorContext)
+
+  const navigate = useNavigate()
 
   const onSubmitHandler = async (event) => {
 
     event.preventDefault()
 
     try {
+
       if (state === 'Admin') {
         const {data} = await axios.post(backendUrl + '/api/admin/login', {email, password})
         if (data.success) {
@@ -23,16 +32,23 @@ const Login = () => {
           toast.error(data.message)
         }
       } else {
-        
+        const {data} = await axios.post(backendUrl + '/api/doctor/login', {email, password})
+        if (data.success) {
+          sessionStorage.setItem('dToken', data.token)
+          setDToken(data.token);
+          console.log(data.token);
+        } else {
+          toast.error(data.message)
+        }
       }
       
     } catch (error) {
+      toast.error(error.message)
+      console.log(error);
       
     }
 
   }
-
-  const { setAToken, backendUrl } = useContext(AdminContext);
 
   return (
     <form onSubmit={onSubmitHandler} className="min-h-[80vh] flex items-center">
@@ -61,7 +77,7 @@ const Login = () => {
             required
           />
         </div>
-        <button className="bg-primary text-white w-full py-2 rounded-md text-base mt-4 mb-2 cursor-pointer">
+        <button type="submit" className="bg-primary text-white w-full py-2 rounded-md text-base mt-4 mb-2 cursor-pointer">
           Login
         </button>
 
